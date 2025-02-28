@@ -1,24 +1,17 @@
-import random
-import queue
-
-class FilaAtendimento:
+class Fila:
     def __init__(self):
-        self.fila = queue.Queue()
+        self.itens = []
 
-    def adicionar_cliente(self, cliente):
+    def entrar_na_fila(self, item):
         """Adiciona um cliente na fila."""
-        self.fila.put(cliente)
-        print(f"Cliente {cliente} entrou na fila.")
+        self.itens.append(item)
 
-    def atender_cliente(self):
-        """Atende o próximo cliente na fila."""
-        if not self.fila.empty():
-            cliente = self.fila.get()
-            print(f"Atendendo cliente {cliente}...")
-            return cliente
-        print("Fila vazia, aguardando clientes...")
+    def sair_da_fila(self):
+        """Remove e retorna o próximo cliente da fila."""
+        if not self.esta_vazia():
+            return self.itens.pop(0)
         return None
 
-    def tamanho_fila(self):
-        """Retorna o tamanho da fila."""
-        return self.fila.qsize()
+    def esta_vazia(self):
+        """Verifica se a fila está vazia."""
+        return len(self.itens) == 0
