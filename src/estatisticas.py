@@ -23,3 +23,4 @@ class EstatisticasFila:
         print("\n=== Estatísticas da Simulação ===")
         print(f"Tempo médio de espera: {tempo_medio_espera:.2f} segundos")
         print(f"Taxa de ocupação do servidor: {taxa_ocupacao:.2f}%")
+
